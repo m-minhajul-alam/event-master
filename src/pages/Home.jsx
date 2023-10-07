@@ -3,6 +3,8 @@ import Banner from "../components/heder/Banner";
 import Card from "../components/main/Card";
 
 const Home = () => {
+
+
     const cards = useLoaderData();
 
     return (

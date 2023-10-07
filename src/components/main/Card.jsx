@@ -8,7 +8,7 @@ const Card = ({ card }) => {
             <img className="w-full rounded-md" src={image} alt="" />
 
             <div className="p-4">
-                <div className="space-y-2 h-60">
+                <div className="space-y-2 md:h-60">
                     <h4 className="text-2xl lg:text-3xl font-bold">{name}</h4>
                     <p className="text-xs md:text-base"><span className="font-bold">Overview:</span> {overview}</p>
                     <p className="text-xs md:text-base"><span className="font-bold">Features:</span> {features}</p>

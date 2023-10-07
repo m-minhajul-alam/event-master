@@ -19,7 +19,7 @@ const Details = () => {
             <div className="bg-blue-950 h-20">
                 <h1 className="text-white text-3xl text-center font-bold pt-3">Service Details</h1>
             </div>
-            <div className="max-w-6xl min-w-[90%] mx-auto text-blue-950">
+            <div className="max-w-6xl w-[90%] mx-auto text-blue-950 mt-3">
                 <div className="flex flex-col lg:flex-row mb-10 gap-7">
                     <img className="h-full shadow-2xl rounded" src={image} alt="" />
                     <div>

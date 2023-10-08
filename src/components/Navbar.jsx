@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
@@ -20,12 +20,22 @@ const Navbar = () => {
                         : "text-white font-light"
             }> Home </NavLink></li>
 
+
         <li><NavLink to={"/register"}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" :
                     isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
                         : " text-white font-light"
             }> Register </NavLink></li>
+
+        {user &&
+            <li><NavLink to={"/profile"}
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" :
+                        isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-white font-light"
+                }> Profile </NavLink></li>
+        }
     </>
 
     return (
@@ -72,10 +82,10 @@ const Navbar = () => {
                                 : " "
                         }
                         {
-                            user? <img className="w-10 rounded-full" src={" https://i.pravatar.cc/150?img=1"} />
-                            :<img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
+                            user ? <img className="w-10 rounded-full" src={" https://i.pravatar.cc/150?img=1"} />
+                                : <img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                         }
-                        
+
                     </div>
                 </div>
 

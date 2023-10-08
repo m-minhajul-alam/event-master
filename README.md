@@ -1,1 +1,1 @@
-Project Live Link: https://event-master-001.web.app
+EventMaster: https://event-master-001.web.app

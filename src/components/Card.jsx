@@ -15,8 +15,8 @@ const Card = ({ card }) => {
                 </div>
                 <div className="flex justify-between items-center mt-5 grow">
                     <p className="text-lg text-yellow-500 font-bold">{price}$ <span className="text-sm text-blue-950 font-normal">/day</span></p>
-                    <button className="btn btn-primary text-xs py-0 bg-blue-950 text-white hover:bg-black grow-b">
-                        <Link to={`/details/${id}`}>View Details</Link></button>
+                    <Link to={`/details/${id}`}> <button className="btn btn-primary text-xs bg-blue-950 text-white hover:bg-black grow-b">
+                        View Details</button></Link>
                 </div>
             </div>
         </div>

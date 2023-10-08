@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
@@ -9,8 +9,10 @@ const Register = () => {
     const [passError, setPassError] = useState(" ");
     const [regSuccess, setRegSuccess] = useState(" ");
     const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    
+
 
 
     const hendelRegister = (e) => {
@@ -34,6 +36,7 @@ const Register = () => {
                 console.log(result.user);
                 setRegSuccess("Rgistration Success.");
                 e.target.reset();
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error.message);
@@ -41,10 +44,11 @@ const Register = () => {
             })
     }
 
-    const hendelGoogleReg = ()=>{
+    const hendelGoogleReg = () => {
         googleSingIn()
-        .then(result => console.log(result.user))
-        .catch(error => console.log(error.message))
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
+            navigate(location?.state ? location.state : '/')
     }
 
     return (

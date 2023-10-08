@@ -3,12 +3,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSingIn } = useContext(AuthContext);
 
     const [emailError, setEmailError] = useState(" ");
     const [passError, setPassError] = useState(" ");
     const [regSuccess, setRegSuccess] = useState(" ");
     const [showPass, setShowPass] = useState(false);
+
+    
+
 
     const hendelRegister = (e) => {
         e.preventDefault();
@@ -30,11 +33,18 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setRegSuccess("Rgistration Success.");
+                e.target.reset();
             })
             .catch(error => {
                 console.log(error.message);
                 setEmailError("warning: this email is alredy in use.");
             })
+    }
+
+    const hendelGoogleReg = ()=>{
+        googleSingIn()
+        .then(result => console.log(result.user))
+        .catch(error => console.log(error.message))
     }
 
     return (
@@ -93,6 +103,9 @@ const Register = () => {
                             <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Register</button>
                         </div>
                         <p className="text-xs text-center">Alredy have account? Please <Link className="text-blue-900 font-bold hover:underline" to={"/login"}>Login</Link></p>
+
+                        <button onClick={hendelGoogleReg} className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>Register With Google</button>
+
                     </form>
                 </div>
             </div>

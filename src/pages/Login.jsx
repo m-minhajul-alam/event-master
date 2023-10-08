@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleSingIn } = useContext(AuthContext);
 
 
     const [loginError, setLoginError] = useState(" ");
@@ -24,11 +25,18 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 setLoginSuccess("Login Success.");
+                e.target.reset();
             })
             .catch(error => {
                 console.error(error);
                 setLoginError("error: user is not valid. please check you email and password. try agine later.")
             })
+    }
+
+    const hendelGoogleReg = () => {
+        googleSingIn()
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
     }
 
 
@@ -74,7 +82,10 @@ const Login = () => {
                         <div className="form-control mt-2">
                             <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Login</button>
                         </div>
-                        <p className="text-xs text-center">Do not have account? <Link className="text-blue-900 font-bold hover:underline" to={"/register"}>Register</Link></p>
+                        <p className="text-xs text-center">Do not have account? Please <Link className="text-blue-900 font-bold hover:underline" to={"/register"}>Register</Link></p>
+
+                        <button onClick={hendelGoogleReg} className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>Login With Google</button>
+
                     </form>
                 </div>
             </div>

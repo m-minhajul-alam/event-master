@@ -1,6 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handelLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+
+    }
+
     const links = <>
         <li><NavLink to={"/"}
             className={({ isActive, isPending }) =>
@@ -51,14 +62,23 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
+
                 <div className="navbar-end">
                     <div className="flex justify-center items-center gap-2">
-                        <button
-                            className="text-blue-950 py-1 px-2 rounded font-bold bg-[#FFFFFF]">
-                            <Link to={'login'}>Login</Link></button>
-                        <img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
+                        {
+                            user ? <div className="flex flex-col items-end text-white">
+                                <p>User Name Here</p>
+                                <button onClick={handelLogOut} className="text-white text-xs font-bold">Logout</button></div>
+                                : " "
+                        }
+                        {
+                            user? <img className="w-10 rounded-full" src={" https://i.pravatar.cc/150?img=1"} />
+                            :<img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
+                        }
+                        
                     </div>
                 </div>
+
             </div>
         </div>
     );

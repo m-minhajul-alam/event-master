@@ -83,7 +83,6 @@ const About = () => {
                             <p className="text-gray-600">Creative Designer</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

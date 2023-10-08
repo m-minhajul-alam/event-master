@@ -8,6 +8,7 @@ import Register from "../pages/Register"
 import Login from "../pages/Login"
 import PrivateRoute from "./PrivateRoute"
 import ContactUs from "../pages/ContactUs"
+import PrivacyPolicy from "../pages/PrivacyPolicy"
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <PrivateRoute><About></About></PrivateRoute>
+            },
+            {
+                path: '/privacyPolicy',
+                element: <PrivateRoute><PrivacyPolicy></PrivacyPolicy></PrivateRoute>
             },
             {
                 path: '/register',

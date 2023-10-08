@@ -27,6 +27,12 @@ const Navbar = () => {
                         isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
                             : " text-white font-light"
                 }> Contact Us </NavLink></li>
+            <li><NavLink to={"/privacyPolicy"}
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" :
+                        isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-white font-light"
+                }> PrivacyPolicy </NavLink></li>
         </>
         }
 

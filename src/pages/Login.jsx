@@ -1,22 +1,33 @@
 import { Link } from 'react-router-dom';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
     const { logIn } = useContext(AuthContext);
+
+
+    const [loginError, setLoginError] = useState(" ");
+    const [loginSuccess, setLoginSuccess] = useState(" ");
+    const [showPass, setShowPass] = useState(false);
 
     const hendelLogin = (e) => {
         e.preventDefault();
         const from = new FormData(e.currentTarget)
         const email = (from.get('email'));
         const password = (from.get('password'));
-        console.log(email, password);
+        // console.log(email, password);
+
+        setLoginError(" ");
+        setLoginSuccess(" ");
+
         logIn(email, password)
             .then(result => {
                 console.log(result);
+                setLoginSuccess("Login Success.");
             })
             .catch(error => {
                 console.error(error);
+                setLoginError("error: user is not valid. please check you email and password. try agine later.")
             })
     }
 
@@ -39,19 +50,31 @@ const Login = () => {
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="relative form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+                            <input
+                                type={showPass ? "text" : "password"}
+                                name='password'
+                                placeholder="password"
+                                className="input input-bordered" required />
+                            <span onClick={() => setShowPass(!showPass)} className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
+                                {
+                                    showPass ? "Hide" : "Show"
+                                }
+                            </span>
                         </div>
+                        {
+                            loginError && <p className="text-xs text-red-500 font-bold text-center mt-2">{loginError}</p>
+                        }
+                        {
+                            loginSuccess && <p className="text-xs text-green-500 text-center font-bold">{loginSuccess}</p>
+                        }
                         <div className="form-control mt-2">
                             <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Login</button>
                         </div>
-                        <p className="text-xs text-center">Do not have account? <Link className="text-blue-600 hover:underline" to={"/register"}>Register</Link></p>
+                        <p className="text-xs text-center">Do not have account? <Link className="text-blue-900 font-bold hover:underline" to={"/register"}>Register</Link></p>
                     </form>
                 </div>
             </div>

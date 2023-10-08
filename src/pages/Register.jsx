@@ -19,9 +19,10 @@ const Register = () => {
 
         setRegSuccess(" ");
         setEmailError(" ");
+        setPassError(" ");
 
-        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/.test(password)) {
-            setPassError("Password should be minimum 6 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number.");
+        if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
+            setPassError("warning: password should be minimum 6 characters, at least 1 capitel letter and 1 special characte.");
             return;
         }
 
@@ -32,7 +33,7 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error.message);
-                setEmailError("this email is alredy in use.");
+                setEmailError("warning: this email is alredy in use.");
             })
     }
 

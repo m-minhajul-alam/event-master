@@ -21,6 +21,13 @@ const Navbar = () => {
             }> Home </NavLink></li>
 
 
+        <li><NavLink to={"/about"}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" :
+                    isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
+                        : " text-white font-light"
+            }> About </NavLink></li>
+
         <li><NavLink to={"/register"}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" :

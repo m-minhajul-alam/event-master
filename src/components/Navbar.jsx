@@ -20,6 +20,15 @@ const Navbar = () => {
                         : "text-white font-light"
             }> Home </NavLink></li>
 
+        {user && <>
+            <li><NavLink to={"/contactUs"}
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" :
+                        isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-white font-light"
+                }> Contact Us </NavLink></li>
+        </>
+        }
 
         <li><NavLink to={"/about"}
             className={({ isActive, isPending }) =>
@@ -35,14 +44,6 @@ const Navbar = () => {
                         : " text-white font-light"
             }> Register </NavLink></li>
 
-        {user &&
-            <li><NavLink to={"/profile"}
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" :
-                        isActive ? "text-white border-b-2 border-yellow-500 font-semibold"
-                            : " text-white font-light"
-                }> Profile </NavLink></li>
-        }
     </>
 
     return (

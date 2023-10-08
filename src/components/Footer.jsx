@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-blue-950 text-white">
-                <div className="max-w-6xl mx-auto p-10 flex flex-col md:flex-row text-center md:text-start space-y-4 justify-between items-center">
+                <div className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row text-center md:text-start space-y-4 justify-between items-center">
                     <div>
                         <p className="text-xl font-bold text-white mb-4"><span className="bg-yellow-500 text-blue-950 p-1 rounded">Event</span> Master</p>
                         <p>Event Master<br />Providing reliable service since 1992</p>

@@ -1,6 +1,5 @@
 import Marquee from "react-fast-marquee";
 
-
 const ClientsReviews = () => {
     return (
 

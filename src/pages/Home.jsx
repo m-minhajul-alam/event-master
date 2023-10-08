@@ -1,15 +1,18 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+import ClientsReviews from "../components/ClientsReviews";
 
 const Home = () => {
-    
+
 
     const cards = useLoaderData();
 
     return (
         <div>
             <Banner></Banner>
+
+
             {/* service section */}
             <div className="max-w-6xl w-[90%] mx-auto my-16">
                 <div className="text-center text-blue-950">
@@ -21,7 +24,10 @@ const Home = () => {
                         cards.map(card => <Card key={card.id} card={card}></Card>)
                     }
                 </div>
+
             </div>
+             <ClientsReviews></ClientsReviews>
+
         </div>
     );
 };

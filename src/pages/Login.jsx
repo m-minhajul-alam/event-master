@@ -49,14 +49,13 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-2">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Login</button>
                         </div>
                         <p className="text-xs text-center">Do not have account? <Link className="text-blue-600 hover:underline" to={"/register"}>Register</Link></p>
                     </form>
                 </div>
             </div>
         </div>
-
     );
 };
 

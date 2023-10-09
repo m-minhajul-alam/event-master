@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { updateProfile } from 'firebase/auth';
 
 const Login = () => {
     const { logIn, googleSingIn } = useContext(AuthContext);
-
-
     const [loginError, setLoginError] = useState(" ");
     const [loginSuccess, setLoginSuccess] = useState(" ");
     const [showPass, setShowPass] = useState(false);
@@ -13,6 +12,8 @@ const Login = () => {
     const hendelLogin = (e) => {
         e.preventDefault();
         const from = new FormData(e.currentTarget)
+        const name = (from.get('name'));
+        const photo = (from.get('photo'));
         const email = (from.get('email'));
         const password = (from.get('password'));
 
@@ -24,6 +25,17 @@ const Login = () => {
                 console.log(result);
                 setLoginSuccess("Login Success.");
                 e.target.reset();
+
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then(() => {
+
+                    }).catch((error) => {
+                        console.log(error);
+
+                    })
             })
             .catch(error => {
                 console.error(error);
@@ -37,7 +49,6 @@ const Login = () => {
             .catch(error => console.log(error.message))
     }
 
-
     return (
         <div>
             <div className="bg-blue-950 h-20">
@@ -45,9 +56,7 @@ const Login = () => {
             </div>
 
             <div className="hero h-full py-16 bg-base-200">
-
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-
                     <form onSubmit={hendelLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -64,7 +73,8 @@ const Login = () => {
                                 name='password'
                                 placeholder="password"
                                 className="input input-bordered" required />
-                            <span onClick={() => setShowPass(!showPass)} className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
+                            <span onClick={() => setShowPass(!showPass)} 
+                            className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
                                 {
                                     showPass ? "Hide" : "Show"
                                 }
@@ -79,10 +89,16 @@ const Login = () => {
                         <div className="form-control mt-2">
                             <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Login</button>
                         </div>
-                        <p className="text-xs text-center">Do not have account? Please <Link className="text-blue-900 font-bold hover:underline" to={"/register"}>Register</Link></p>
+                        <p className="text-xs text-center">
+                            Do not have account? Please <Link
+                                className="text-blue-900 font-bold hover:underline" to={"/register"}>
+                                Register</Link>
+                        </p>
 
-                        <button onClick={hendelGoogleReg} className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>Login With Google</button>
-
+                        <button onClick={hendelGoogleReg}
+                            className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>
+                            Login With Google
+                        </button>
                     </form>
                 </div>
             </div>

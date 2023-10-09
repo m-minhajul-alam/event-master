@@ -8,8 +8,6 @@ import { useEffect } from "react";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    console.log(user.photoURL);
-
     const handelLogOut = () => {
         logOut()
             .then()
@@ -23,35 +21,34 @@ const Navbar = () => {
         });
     }, []);
 
-
     const links = <>
         <li><NavLink to={"/"}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" :
-                    isActive ? "text-blue-950 md:text-white border-b-2 border-yellow-500 font-semibold"
-                        : "text-blue-950 md:text-white font-light"
+                    isActive ? "text-blue-950 lg:text-white border-b-2 border-yellow-500 font-semibold"
+                        : "text-blue-950 lg:text-white font-light"
             }> Home </NavLink></li>
 
         {user && <>
             <li><NavLink to={"/contactUs"}
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" :
-                        isActive ? "text-blue-950 md:text-white border-b-2 border-yellow-500 font-semibold"
-                            : " text-blue-950 md:text-white font-light"
+                        isActive ? "text-blue-950 lg:text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-blue-950 lg:text-white font-light"
                 }> Contact Us </NavLink></li>
 
             <li><NavLink to={"/privacyPolicy"}
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" :
-                        isActive ? "text-blue-950 md:text-white border-b-2 border-yellow-500 font-semibold"
-                            : " text-blue-950 md:text-white font-light"
+                        isActive ? "text-blue-950 lg:text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-blue-950 lg:text-white font-light"
                 }> PrivacyPolicy </NavLink></li>
 
             <li><NavLink to={"/about"}
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" :
-                        isActive ? "text-blue-950 md:text-white border-b-2 border-yellow-500 font-semibold"
-                            : " text-blue-950 md:text-white font-light"
+                        isActive ? "text-blue-950 lg:text-white border-b-2 border-yellow-500 font-semibold"
+                            : " text-blue-950 lg:text-white font-light"
                 }> About </NavLink></li>
         </>
         }
@@ -59,17 +56,16 @@ const Navbar = () => {
         <li><NavLink to={"/register"}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" :
-                    isActive ? "text-blue-950 md:text-white border-b-2 border-yellow-500 font-semibold"
-                        : " text-blue-950 md:text-white font-light"
+                    isActive ? "text-blue-950 lg:text-white border-b-2 border-yellow-500 font-semibold"
+                        : " text-blue-950 lg:text-white font-light"
             }> Register </NavLink></li>
-
     </>
 
     return (
         <div className=" bg-blue-950 md:pt-2">
 
             {/* nav md and lg screen */}
-            <div className="navbar max-w-6xl w-[90%] mx-auto hidden md:flex">
+            <div className="navbar max-w-6xl w-[90%] mx-auto hidden lg:flex">
                 <div data-aos="fade-down" data-aos-duration="1000" className="navbar-start">
                     <a href='/'
                         className="text-xl font-bold text-white">
@@ -89,16 +85,15 @@ const Navbar = () => {
                                 : " "
                         }
                         {
-                            user ? <img className="w-10 rounded-full" src={!user.photoURL && "https://i.ibb.co/N7fnVsV/user.png"} />
+                            user ? <img className="w-10 rounded-full" src={user.photoURL} />
                                 : <img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                         }
                     </div>
                 </div>
             </div>
 
-
             {/* nav for sm screen */}
-            <div className="navbar w-[90%] mx-auto text-white md:hidden">
+            <div className="navbar w-[90%] mx-auto text-white lg:hidden">
                 <div className="flex-1">
                     <a href='/'
                         className="text-sm font-semibold text-white">
@@ -110,7 +105,7 @@ const Navbar = () => {
                         <div className="dropdown text-blue-950 dropdown-end">
                             <label tabIndex={0} className="\">
                                 {
-                                    user ? <img className="w-8 rounded-full" src={!user.photoURL && "https://i.ibb.co/N7fnVsV/user.png"} />
+                                    user ? <img className="w-8 rounded-full" src={user.photoURL} />
                                         : <img className="w-8 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                                 }
                             </label>

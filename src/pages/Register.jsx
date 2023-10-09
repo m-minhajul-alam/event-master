@@ -5,7 +5,6 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const { createUser, googleSingIn } = useContext(AuthContext);
-
     const [emailError, setEmailError] = useState(" ");
     const [passError, setPassError] = useState(" ");
     const [regSuccess, setRegSuccess] = useState(" ");
@@ -48,11 +47,7 @@ const Register = () => {
                         console.log(error);
 
                     })
-
-
             })
-
-
 
             .catch(error => {
                 console.log(error.message);
@@ -106,7 +101,8 @@ const Register = () => {
                                 name='password'
                                 placeholder="password"
                                 className="input input-bordered" required />
-                            <span onClick={() => setShowPass(!showPass)} className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
+                            <span onClick={() => setShowPass(!showPass)}
+                                className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
                                 {
                                     showPass ? "Hide" : "Show"
                                 }
@@ -122,9 +118,13 @@ const Register = () => {
                         <div className="form-control mt-2">
                             <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Register</button>
                         </div>
-                        <p className="text-xs text-center">Alredy have account? Please <Link className="text-blue-900 font-bold hover:underline" to={"/login"}>Login</Link></p>
+                        <p className="text-xs text-center">Alredy have account? Please <Link
+                            className="text-blue-900 font-bold hover:underline" to={"/login"}>Login</Link>
+                        </p>
 
-                        <button onClick={hendelGoogleReg} className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>Register With Google</button>
+                        <button onClick={hendelGoogleReg}
+                            className='relative border border-blue-950 w-full py-1 font-bold mt-2 rounded-full'>
+                            Register With Google</button>
 
                     </form>
                 </div>

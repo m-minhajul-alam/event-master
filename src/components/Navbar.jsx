@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    console.log(user);
+    console.log(user.photoURL);
 
     const handelLogOut = () => {
         logOut()
@@ -89,7 +89,7 @@ const Navbar = () => {
                                 : " "
                         }
                         {
-                            user ? <img className="w-10 rounded-full" src={user.photoURL} />
+                            user ? <img className="w-10 rounded-full" src={!user.photoURL && "https://i.ibb.co/N7fnVsV/user.png"} />
                                 : <img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                         }
                     </div>
@@ -110,7 +110,7 @@ const Navbar = () => {
                         <div className="dropdown text-blue-950 dropdown-end">
                             <label tabIndex={0} className="\">
                                 {
-                                    user ? <img className="w-8 rounded-full" src={user.photoURL} />
+                                    user ? <img className="w-8 rounded-full" src={!user.photoURL && "https://i.ibb.co/N7fnVsV/user.png"} />
                                         : <img className="w-8 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                                 }
                             </label>

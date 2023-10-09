@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const { createUser, googleSingIn } = useContext(AuthContext);
@@ -16,6 +17,8 @@ const Register = () => {
         e.preventDefault();
 
         const from = new FormData(e.currentTarget);
+        const name = (from.get('name'));
+        const photo = (from.get('photo'));
         const email = (from.get('email'));
         const password = (from.get('password'));
 
@@ -34,7 +37,23 @@ const Register = () => {
                 setRegSuccess("Rgistration Success.");
                 e.target.reset();
                 navigate(location?.state ? location.state : '/')
+
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then(() => {
+
+                    }).catch((error) => {
+                        console.log(error);
+
+                    })
+
+
             })
+
+
+
             .catch(error => {
                 console.log(error.message);
                 setEmailError("warning: this email is alredy in use.");

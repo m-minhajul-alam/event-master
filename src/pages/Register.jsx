@@ -50,8 +50,7 @@ const Register = () => {
             })
 
             .catch(error => {
-                console.log(error.message);
-                setEmailError("error.message");
+                setEmailError(error.message);
             })
     }
 

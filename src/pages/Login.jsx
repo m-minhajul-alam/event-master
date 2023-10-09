@@ -24,8 +24,7 @@ const Login = () => {
                 e.target.reset();
             })
             .catch(error => {
-                console.error(error);
-                setLoginError(error.message)
+                setLoginError(error.message);
             })
     }
 

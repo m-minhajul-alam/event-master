@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer C
 
-<i>The correct answer is "C: undefined". Because at first declare a variable name "greeting" with out value. in the 2n line mistakenly wrote "greetign" as the variable name. That why the value is not set in the variable. So, when console log "greeting", it show "undefined". </i>
+The correct answer is "C: undefined". Because at first declare a variable name "greeting" with out value. in the 2n line mistakenly wrote "greetign" as the variable name. That why the value is not set in the variable. So, when console log "greeting", it show "undefined".
 
 </p>
 </details>
@@ -43,9 +43,9 @@ sum(1, "2");
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer C
 
-<i>The correct answer is ' C: "12" '. Because "2" is a string. when javaScript try to add it to the number 1. the 1 and 2 will sit side by side with out Mathematical adding.so, The result of 1 + "2" is "12" as a string. </i>
+The correct answer is ' C: "12" '. Because "2" is a string. when javaScript try to add it to the number 1. the 1 and 2 will sit side by side with out Mathematical adding.so, The result of 1 + "2" is "12" as a string.
 
 </p>
 </details>
@@ -69,9 +69,9 @@ console.log(food);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer A
 
-<i>The correct answer is 'A: ['🍕', '🍫', '🥑', '🍔']'. At frist give an array Called "food". after that the code updates the info.favoriteFood property to "🍝". this update does not affect the original food array. So, when you console log "food" at the end, it will still display the original food array, which is ['🍕', '🍫', '🥑', '🍔'].</i>
+The correct answer is 'A: ['🍕', '🍫', '🥑', '🍔']'. At frist give an array Called "food". after that the code updates the info.favoriteFood property to "🍝". this update does not affect the original food array. So, when you console log "food" at the end, it will still display the original food array, which is ['🍕', '🍫', '🥑', '🍔'].
 
 </p>
 </details>
@@ -94,9 +94,9 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer B
 
-<i>The correct answer is 'B: Hi there, undefined'. when call a function with parameters, it need arguments.  the sayHi function expects one argument, which is name. so, when console log sayHi without providing any argument it return "Hi there, undefined".</i>
+The correct answer is 'B: Hi there, undefined'. when call a function with parameters, it need arguments.  the sayHi function expects one argument, which is name. so, when console log sayHi without providing any argument it return "Hi there, undefined".
 
 </p>
 </details>
@@ -122,9 +122,9 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer C
 
-<i>The correct answer is 'C: 3'. becouse, the "forEach" method iterates through each element in the "nums" array. For each element num, the code checks if num is truthy. If num is truthy, it increments the count variable by 1. but the 0 is falsey value. so, the result is 3.</i>
+The correct answer is 'C: 3'. becouse, the "forEach" method iterates through each element in the "nums" array. For each element num, the code checks if num is truthy. If num is truthy, it increments the count variable by 1. but the 0 is falsey value. so, the result is 3.
 
 </p>
 </details>

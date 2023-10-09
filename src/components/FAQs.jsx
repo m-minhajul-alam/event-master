@@ -1,11 +1,21 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const FAQs = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    }, []);
+
     return (
-        <div className="max-w-6xl w-[90%] mx-auto my-16">
+        <div data-aos="fade-up" data-aos-duration="1000" className="max-w-6xl w-[90%] mx-auto my-16">
             <h2 className="text-2xl lg:text-3xl font-bold text-blue-950 text-center mb-10">FAQs</h2>
             <div className="mb-10 space-y-4">
-                <div className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
+                <div data-aos="zoom-in-up" data-aos-duration="1000" className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
                     <input type="radio" name="my-accordion-3" />
                     <div className="collapse-title text-xl font-medium">
                         What types of events do you specialize in?
@@ -15,7 +25,7 @@ const FAQs = () => {
                     </div>
                 </div>
 
-                <div className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
+                <div data-aos="zoom-in-up" data-aos-duration="1000" className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
                     <input type="radio" name="my-accordion-3" />
                     <div className="collapse-title text-xl font-medium">
                         How can I request a quote for an event?
@@ -26,7 +36,7 @@ const FAQs = () => {
                     </div>
                 </div>
 
-                <div className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
+                <div data-aos="zoom-in-up" data-aos-duration="1000" className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
                     <input type="radio" name="my-accordion-3" />
                     <div className="collapse-title text-xl font-medium">
                         Do you provide virtual event planning services?
@@ -36,7 +46,7 @@ const FAQs = () => {
                     </div>
                 </div>
 
-                <div className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
+                <div data-aos="zoom-in-up" data-aos-duration="1000" className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
                     <input type="radio" name="my-accordion-3" />
                     <div className="collapse-title text-xl font-medium">
                         What is the typical timeline for planning a corporate event?
@@ -46,7 +56,7 @@ const FAQs = () => {
                     </div>
                 </div>
 
-                <div className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
+                <div data-aos="zoom-in-up" data-aos-duration="1000" className="collapse collapse-plus bg-base-200 border-2 border-blue-950">
                     <input type="radio" name="my-accordion-3" />
                     <div className="collapse-title text-xl font-medium">
                         Can you handle events in multiple locations or countries?

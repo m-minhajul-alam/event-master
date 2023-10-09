@@ -1,15 +1,25 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut} = useContext(AuthContext);
 
     const handelLogOut = () => {
         logOut()
             .then()
             .catch()
     }
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    }, []);
 
     const links = <>
         <li><NavLink to={"/"}
@@ -57,17 +67,17 @@ const Navbar = () => {
 
             {/* nav md and lg screen */}
             <div className="navbar max-w-6xl w-[90%] mx-auto hidden md:flex">
-                <div className="navbar-start">
+                <div data-aos="fade-right" data-aos-duration="1000" className="navbar-start">
                     <a href='/'
                         className="text-xl font-bold text-white">
                         <span className="bg-yellow-500 text-blue-950 p-1 rounded">Event</span> Master</a>
                 </div>
-                <div className="navbar-center flex">
+                <div data-aos="fade-down" data-aos-duration="1000" className="navbar-center flex">
                     <ul className="menu-horizontal gap-5">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div data-aos="fade-left" data-aos-duration="1000" className="navbar-end">
                     <div className="flex justify-center items-center gap-2">
                         {
                             user ? <div className="flex flex-col items-end text-white">

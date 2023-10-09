@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const Card = ({ card }) => {
     const { id, name, overview, image, price, features } = card;
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    }, []);
+
     return (
-        <div className="rounded-lg text-blue-950 border-2 border-blue-950 mb-3">
+        <div data-aos="zoom-in-up" data-aos-duration="1000" className="rounded-lg text-blue-950 border-2 border-blue-950 mb-3">
             <img className="w-full rounded-md" src={image} alt="" />
 
             <div className="p-4">

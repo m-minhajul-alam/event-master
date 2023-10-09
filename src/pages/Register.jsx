@@ -87,9 +87,6 @@ const Register = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" required />
-                            {
-                                emailError && <p className="text-xs text-red-500 font-bold ml-3 mt-2">{emailError}</p>
-                            }
                         </div>
                         <div className="relative form-control">
                             <label className="label">
@@ -113,6 +110,9 @@ const Register = () => {
 
                         {
                             regSuccess && <p className="text-xs text-green-500 text-center font-bold">{regSuccess}</p>
+                        }
+                        {
+                            emailError && <p className="text-xs text-red-500 font-bold ml-3 mt-2">{emailError}</p>
                         }
                         <div className="form-control mt-2">
                             <button className="btn btn-primary border-none hover:border-none bg-blue-900 hover:bg-blue-900 text-white">Register</button>

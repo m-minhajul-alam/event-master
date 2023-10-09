@@ -12,9 +12,6 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-
-
-
     const hendelRegister = (e) => {
         e.preventDefault();
 
@@ -48,7 +45,7 @@ const Register = () => {
         googleSingIn()
             .then(result => console.log(result.user))
             .catch(error => console.log(error.message))
-            navigate(location?.state ? location.state : '/')
+        navigate(location?.state ? location.state : '/')
     }
 
     return (

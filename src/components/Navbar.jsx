@@ -6,7 +6,9 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
 const Navbar = () => {
-    const { user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    console.log(user);
 
     const handelLogOut = () => {
         logOut()
@@ -20,6 +22,7 @@ const Navbar = () => {
             easing: 'ease-in-out',
         });
     }, []);
+
 
     const links = <>
         <li><NavLink to={"/"}
@@ -67,7 +70,7 @@ const Navbar = () => {
 
             {/* nav md and lg screen */}
             <div className="navbar max-w-6xl w-[90%] mx-auto hidden md:flex">
-                <div data-aos="fade-right" data-aos-duration="1000" className="navbar-start">
+                <div data-aos="fade-down" data-aos-duration="1000" className="navbar-start">
                     <a href='/'
                         className="text-xl font-bold text-white">
                         <span className="bg-yellow-500 text-blue-950 p-1 rounded">Event</span> Master</a>
@@ -77,16 +80,16 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div data-aos="fade-left" data-aos-duration="1000" className="navbar-end">
+                <div data-aos="fade-down" data-aos-duration="1000" className="navbar-end">
                     <div className="flex justify-center items-center gap-2">
                         {
                             user ? <div className="flex flex-col items-end text-white">
-                                <p>User Name Here</p>
+                                <p>{user.displayName}</p>
                                 <button onClick={handelLogOut} className="text-white text-xs font-bold">Logout</button></div>
                                 : " "
                         }
                         {
-                            user ? <img className="w-10 rounded-full" src={" https://i.pravatar.cc/150?img=1"} />
+                            user ? <img className="w-10 rounded-full" src={user.photoURL} />
                                 : <img className="w-10 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                         }
                     </div>
@@ -107,7 +110,7 @@ const Navbar = () => {
                         <div className="dropdown text-blue-950 dropdown-end">
                             <label tabIndex={0} className="\">
                                 {
-                                    user ? <img className="w-8 rounded-full" src={" https://i.pravatar.cc/150?img=1"} />
+                                    user ? <img className="w-8 rounded-full" src={user.photoURL} />
                                         : <img className="w-8 rounded-full" src={"https://i.ibb.co/N7fnVsV/user.png"} />
                                 }
                             </label>
@@ -115,7 +118,7 @@ const Navbar = () => {
                                 <li>
                                     {
                                         user ?
-                                            <p className="text-blue-950">User Name Here</p>
+                                            <p className="text-blue-950">{user.displayName}</p>
                                             : " "
                                     }
                                 </li>

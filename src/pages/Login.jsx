@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
     const { logIn, googleSingIn } = useContext(AuthContext);
@@ -16,7 +15,6 @@ const Login = () => {
         const from = new FormData(e.currentTarget)
         const email = (from.get('email'));
         const password = (from.get('password'));
-        // console.log(email, password);
 
         setLoginError(" ");
         setLoginSuccess(" ");
@@ -46,8 +44,7 @@ const Login = () => {
                 <h1 className="text-white text-3xl text-center font-bold pt-3">Login</h1>
             </div>
 
-
-            <div className="hero py-16 bg-base-200">
+            <div className="hero h-full py-16 bg-base-200">
 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 

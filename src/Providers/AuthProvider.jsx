@@ -42,13 +42,14 @@ const AuthProvider = ({ children }) => {
         };
     }, []);
 
+
     const authInfo = {
         user,
+        loding,
         createUser,
         logIn,
         logOut,
         googleSingIn,
-        loding
     }
 
     return (

@@ -16,11 +16,11 @@ const Footer = () => {
         <div>
             <footer data-aos="fade-up" data-aos-duration="1000" className="bg-blue-950 text-white">
                 <div className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row text-center md:text-start space-y-4 justify-between items-center">
-                    <div data-aos="fade-right" data-aos-duration="1000">
+                    <div data-aos="fade-up" data-aos-duration="1000">
                         <p className="text-xl font-bold text-white mb-4"><span className="bg-yellow-500 text-blue-950 p-1 rounded">Event</span> Master</p>
                         <p>Event Master<br />Providing reliable service since 1992</p>
                     </div>
-                    <div data-aos="fade-left" data-aos-duration="1000">
+                    <div data-aos="fade-up" data-aos-duration="1000">
                         <h3 className="footer-title text-white">Social</h3>
                         <div className="grid grid-flow-col gap-4">
                             <a href="https://www.facebook.com/"><FaFacebook className='text-2xl'></FaFacebook></a>

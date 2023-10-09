@@ -52,7 +52,6 @@ const ContactUs = () => {
                 </div>
             </div>
 
-
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold mb-4">Connect with Us</h2>
                 <div className="mb-4">
@@ -67,8 +66,6 @@ const ContactUs = () => {
                     <a href="linkedin.com" className="text-blue-900 hover:text-blue-950 transition duration-300"> <FaLinkedin></FaLinkedin> </a>
                 </div>
             </div>
-
-
 
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold mb-4">Privacy Policy and Terms of Service</h2>
@@ -105,7 +102,7 @@ const ContactUs = () => {
                         Our full team information is <Link to="/about" className="text-blue-300 hover:underline">HERE</Link>.
                     </p>
                     <div className="flex items-center">
-                        <Marquee pauseOnHover={true}>
+                        <Marquee>
                             <img className="rounded-full bg-black mr-7 mx-auto h-64" src="https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1670513031775Jhankar-Mahbub.png" alt="" />
                             <img className="rounded-full bg-black mr-7 mx-auto h-64" src="https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703407535MD%20GIAS%20UDDIN.png" alt="" />
                             <img className="rounded-full bg-black mr-7 mx-auto h-64" src="https://herosapp.nyc3.digitaloceanspaces.com/heroHQ/1685703442589Azizul%20Islam%20Milton.png" alt="" />

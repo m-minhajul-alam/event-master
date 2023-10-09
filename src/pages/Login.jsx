@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { updateProfile } from 'firebase/auth';
 
 const Login = () => {
     const { logIn, googleSingIn } = useContext(AuthContext);
@@ -12,8 +11,6 @@ const Login = () => {
     const hendelLogin = (e) => {
         e.preventDefault();
         const from = new FormData(e.currentTarget)
-        const name = (from.get('name'));
-        const photo = (from.get('photo'));
         const email = (from.get('email'));
         const password = (from.get('password'));
 
@@ -25,17 +22,6 @@ const Login = () => {
                 console.log(result);
                 setLoginSuccess("Login Success.");
                 e.target.reset();
-
-                updateProfile(result.user, {
-                    displayName: name,
-                    photoURL: photo
-                })
-                    .then(() => {
-
-                    }).catch((error) => {
-                        console.log(error);
-
-                    })
             })
             .catch(error => {
                 console.error(error);
@@ -73,8 +59,8 @@ const Login = () => {
                                 name='password'
                                 placeholder="password"
                                 className="input input-bordered" required />
-                            <span onClick={() => setShowPass(!showPass)} 
-                            className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
+                            <span onClick={() => setShowPass(!showPass)}
+                                className="absolute top-14 right-3 text-blue-900 text-xs font-bold cursor-pointer">
                                 {
                                     showPass ? "Hide" : "Show"
                                 }
@@ -87,7 +73,7 @@ const Login = () => {
                             loginSuccess && <p className="text-xs text-green-500 text-center font-bold">{loginSuccess}</p>
                         }
                         <div className="form-control mt-2">
-                            <button className="btn btn-primary bg-blue-900 hover:bg-blue-900 text-white">Login</button>
+                            <button className="btn btn-primary border-none hover:border-none bg-blue-900 hover:bg-blue-900 text-white">Login</button>
                         </div>
                         <p className="text-xs text-center">
                             Do not have account? Please <Link

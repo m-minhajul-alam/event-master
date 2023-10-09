@@ -26,7 +26,7 @@ const Register = () => {
         setPassError(" ");
 
         if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
-            setPassError("warning: password should be minimum 6 characters, at least 1 capitel letter and 1 special characte.");
+            setPassError("password should be minimum 6 characters, at least 1 capitel letter and 1 special characte.");
             return;
         }
 
@@ -51,7 +51,7 @@ const Register = () => {
 
             .catch(error => {
                 console.log(error.message);
-                setEmailError("warning: this email is alredy in use.");
+                setEmailError("error.message");
             })
     }
 

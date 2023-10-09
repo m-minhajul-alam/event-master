@@ -25,7 +25,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error);
-                setLoginError("error: user is not valid. please check you email and password. try agine later.")
+                setLoginError(error.message)
             })
     }
 

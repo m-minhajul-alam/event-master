@@ -72,7 +72,9 @@ const Login = () => {
                             loginSuccess && <p className="text-xs text-green-500 text-center font-bold">{loginSuccess}</p>
                         }
                         <div className="form-control mt-2">
-                            <button className="btn btn-primary border-none hover:border-none bg-blue-900 hover:bg-blue-900 text-white">Login</button>
+                            <button 
+                            className="btn btn-primary border-none hover:border-none bg-blue-900 hover:bg-blue-900 text-white">
+                                Login</button>
                         </div>
                         <p className="text-xs text-center">
                             Do not have account? Please <Link

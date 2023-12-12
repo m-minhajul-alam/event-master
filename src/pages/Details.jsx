@@ -7,8 +7,6 @@ const Details = () => {
     const cards = useLoaderData()
     const { id } = useParams()
 
-
-
     useEffect(() => {
         if (cards) {
             const findCard = cards.find(card => card.id === id)
